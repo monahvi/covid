@@ -29,3 +29,13 @@ Select location, date, population, total_cases, (total_cases/population) *100 As
 From PortfolioProject..CovidDeaths
 Where location like '%United kingdom%'
 order by 1,2
+
+
+-- Looking at Countries with Highest Infection Rate Compared to Population
+Select location, population, MAX(total_cases) As HighestInfectionCount, MAX((total_cases/population)) *100 As PercentPopulationUnfected
+From PortfolioProject..CovidDeaths
+--Where location like '%United kingdom%'
+Group by location,population
+order by PercentPopulationUnfected desc
+
+
