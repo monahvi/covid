@@ -105,4 +105,14 @@ Where continent is not null
 Group by date
 order by 1,2
 
+-- Looking at Total Population vs Vaccinations
+
+Select dea.continent, dea.location, dea.date,dea.population,vac.new_vaccinations
+From PortfolioProject..CovidDeaths dea
+Join PortfolioProject..CovidVaccinations vac
+	On dea.location = vac.location
+	and dea.date = vac.date
+Where dea.continent is not null
+order by 2,3
+
 
