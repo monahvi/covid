@@ -39,3 +39,9 @@ Group by location,population
 order by PercentPopulationUnfected desc
 
 
+-- Looking at Countries with Highest Infection Rate Compared to Population
+Select location, MAX(total_deaths) As TotalDeathCount
+From PortfolioProject..CovidDeaths
+--Where location like '%United kingdom%'
+Group by location
+order by TotalDeathCount desc
